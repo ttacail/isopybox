@@ -103,7 +103,7 @@ class IsotopicBoxModel():
             bsizenew[ii] = (influx - outflux)*t + self.INPUT.boxes_size[ii]
             
         # Ratio evolution
-        for ii in range(ratio.size):                                                                            # PREVIOUS LOCAL CALCULATION OF BOX SIZES EVOLUTION IS MISSING
+        for ii in range(ratio.size):
             outflux = 0
             influx = 0
             outflux_bsize = 0
@@ -174,7 +174,7 @@ class IsotopicBoxModel():
         ax2.set_ylabel('$\delta^{%s}$%s' % (str(self.INPUT.numerator),str(self.INPUT.element)) )
         
         values = range(len(self.INPUT.boxes_id))
-        color_map = plt.get_cmap('rainbow') #mod AH: passé de 'spectral' à 'rainbow' 
+        color_map = plt.get_cmap('rainbow') 
         cNorm  = colors.Normalize(vmin=0, vmax=values[-1])
         scalarMap = cmx.ScalarMappable(norm=cNorm, cmap=color_map)
         
@@ -215,8 +215,6 @@ class IsotopicBoxModel():
                     label='%s' % str(self.INPUT.boxes_id[bb]))
         
         ax2.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
-#        ax1.set_ylim(-2, 0.2)
-#        ax2.set_ylim(-2, 0.2)
         ax1.grid()
         ax2.grid()
         fig.subplots_adjust(right=0.8)
@@ -236,7 +234,7 @@ class IsotopicBoxModel():
         df = pd.DataFrame(index=range(0,len(self.INPUT.boxes_id)), 
                           columns=['BOXES_ID', 'SIZE_FINAL', 'DELTA_FINAL'])
         df.BOXES_ID = self.INPUT.boxes_id  
-        df.SIZE_FINAL = self.INPUT.boxes_size # to change if time dependent
+        df.SIZE_FINAL = self.INPUT.boxes_size 
         df.DELTA_FINAL = self.Delta[-1, :]
         df.to_excel(writer,'FINAL')
         writer.save()
