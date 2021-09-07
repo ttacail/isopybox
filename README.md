@@ -13,4 +13,4 @@ The isopybox function is now deprecated and will not be kept up to date.
 
 The functionality of **isopybox** is part of the **isobxr** R package together with numerous other functions for dynamic stable isotope box modelling. 
 
-Learn more about this R package here: https://ttacail.github.io/isobxr/
+Learn more about this R package at https://ttacail.github.io/isobxr_web/
